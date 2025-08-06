@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END, MessagesState, START
 from langgraph.prebuilt import tools_condition, ToolNode
-from langchain.core_prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 import datetime
 from src.langgraph_agentic_ai.state.state import State
 from src.langgraph_agentic_ai.nodes.basic_chatbot_node import BasicChatbotNode

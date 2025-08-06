@@ -2,20 +2,24 @@ from configparser import ConfigParser
 
 
 class Config:
-    def __init__(self, config_file = "./src/langgraph_agentic_ai/ui.uiconfigfile.ini"):
+    def __init__(self, config_file = "./src/langgraph_agentic_ai/ui/uiconfigfile.ini"):
         self.config = ConfigParser()
         self.config.read(config_file)
         
     def get_llm_option(self): # This function is to only read about the LLM field from uiconfigfile.ini file
-        return self.config["DEFAULT"].get("LLM_OPTIONS").split(", ")
+        llm_options = self.config["DEFAULT"].get("LLM_OPTIONS")
+        return llm_options.split(", ") if llm_options else ["Groq"]
     
     def get_usecase_options(self):
-        return self.config["DEFAULT"].get("USECASE_OPTIONS").split(", ")
+        usecase_options = self.config['DEFAULT'].get("USECASE_OPTIONS")
+        return usecase_options.split(", ") if usecase_options else ["Basic Chatbot"]
     
     def get_groq_model_options(self):
-        return self.config["DEFAULT"].get("GROQ_MODEL_OPTIONS").split(",")
+        groq_options = self.config['DEFAULT'].get("GROQ_MODEL_OPTIONS")
+        return groq_options.split(", ") if groq_options else ["mixtral-8x7b-32768"] 
     
     def get_page_title(self):
-        return self.config["DEFAULT"].get("PAGE_TITLE")
+        page_title = self.config["DEFAULT"].get("PAGE_TITLE")
+        return page_title if page_title else "Agentic AI Application" 
     
         
