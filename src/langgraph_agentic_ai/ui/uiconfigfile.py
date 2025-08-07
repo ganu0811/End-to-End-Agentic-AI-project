@@ -16,7 +16,7 @@ class Config:
     
     def get_groq_model_options(self):
         groq_options = self.config['DEFAULT'].get("GROQ_MODEL_OPTIONS")
-        return groq_options.split(", ") if groq_options else ["mixtral-8x7b-32768"] 
+        return groq_options.split(", ") if groq_options else [" llama3-8b-8192"] 
     
     def get_page_title(self):
         page_title = self.config["DEFAULT"].get("PAGE_TITLE")

@@ -17,7 +17,7 @@ class GraphBuilder:
         and integrates it into the graph. The chatbot node is set as both the
         entry and exit point of the graph.
         """
-        self.basic_chatbot_node = BasicChatbotNode(self.llm)
+        self.basic_chatbot_node = BasicChatbotNode(self.model)
         
         self.graph_builder.add_node("chatbot", self.basic_chatbot_node.process)
         self.graph_builder.add_edge(START,"chatbot" )
@@ -30,8 +30,8 @@ class GraphBuilder:
         Args:
             usecase (str): _description_
         """
-        
-        if usecase == 'basic chatbot':
+
+        if usecase.lower() == 'basic chatbot':
             self.basic_chatbot_build_graph()
         return self.graph_builder.compile()
     

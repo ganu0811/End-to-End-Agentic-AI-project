@@ -3,7 +3,7 @@ import json
 from src.langgraph_agentic_ai.ui.streamlitui.load_ui import LoadStreamlitUI
 from src.langgraph_agentic_ai.LLMs.groq_llm import GroqLLM
 from src.langgraph_agentic_ai.graph.graph_builder import GraphBuilder
-
+from src.langgraph_agentic_ai.ui.streamlitui.display_result import DisplayResults
 
 def load_langgraph_agentic_ai_app():
     """Loads and runs the LangGraph AgenticAI application with Streamlit UI
@@ -50,9 +50,11 @@ def load_langgraph_agentic_ai_app():
             # Calling the graph builder
             graph_builder = GraphBuilder(model)
             try:
-                graph_builder.setup_graph(usecase)
+                graph = graph_builder.setup_graph(usecase)
+                DisplayResults(usecase,graph, user_message).display_results_on_ui()
             except Exception as e:
                 st.error(f"Error: Graph setup failed - {e}")
                 return
+            
         except Exception as e:
                 raise ValueError(f'Error occurred while setting up graph: {e}')
