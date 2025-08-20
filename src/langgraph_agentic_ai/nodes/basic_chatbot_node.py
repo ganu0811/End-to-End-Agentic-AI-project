@@ -11,10 +11,7 @@ class BasicChatbotNode:
     
     
     def process(self, state: State) -> dict:
-        """Process the input state and generates chatbot responses
-
-
-        """
-        
-        return {"messages": self.llm.invoke(state['messages'])}
+        """Process the input state and generates chatbot responses"""
+        response = self.llm.invoke(state['messages'])
+        return {"messages": [response]}
         
