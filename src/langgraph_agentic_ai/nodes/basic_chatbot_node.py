@@ -7,11 +7,11 @@ class BasicChatbotNode:
     """
     
     def __init__(self, model):
-        self.llm = model
+        self.model = model
     
     
     def process(self, state: State) -> dict:
         """Process the input state and generates chatbot responses"""
-        response = self.llm.invoke(state['messages'])
+        response = self.model.invoke(state['messages'])
         return {"messages": [response]}
         

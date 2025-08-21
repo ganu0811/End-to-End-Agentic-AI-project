@@ -14,16 +14,25 @@ class DisplayResults:
         graph = self.graph
         user_message = self.user_message
         if usecase == 'Basic Chatbot':
-            for event in graph.stream({'messages': ("user", user_message)}):
+            for event in graph.stream({'messages': [HumanMessage(content=user_message)]}):
                 print(event.values())
                 for value in event.values():
                     print(value['messages'])
                     with st.chat_message("user"):
                         st.write(user_message)
                     with st.chat_message("assistant"):
-                        st.write(value['messages'].content)
+                        # Handle the case where messages is a list
+                        messages = value['messages']
+                        if isinstance(messages, list) and len(messages) > 0:
+                            # Get the last message from the list
+                            last_message = messages[-1]
+                            st.write(last_message.content)
+                        else:
+                            # Handle single message case
+                            st.write(messages.content)
+    
         elif usecase == 'Chatbot with Tool':
-            initial_state = {"messages": {user_message}}
+            initial_state = {"messages": [HumanMessage(content=user_message)]}
             res = graph.invoke(initial_state)
             for message in res['messages']:
                 if type(message) == HumanMessage:
@@ -38,4 +47,5 @@ class DisplayResults:
                     
                     with st.chat_message("assistant"):
                         st.write(message.content)
+        
                 
