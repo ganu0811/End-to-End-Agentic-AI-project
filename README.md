@@ -1,9 +1,5 @@
-title: {{LangGraphAgenticAI}}
-emoji: {{🐨}}
-colorFrom: {{blue}}
-colorTo: {{red}}
-sdk: {{Streamlit}}
-sdk_version: "{{1.42.0}}"
-app_file: app.py
-pinned: false
+| Title              | Emoji | Color From | Color To | SDK       | SDK Version | App File | Pinned | License    | Short Description       |
+|--------------------|-------|------------|----------|-----------|-------------|----------|--------|------------|-------------------------|
+| LanggraphAgenticAI | 🐨    | blue       | red      | streamlit | 1.42.0      | app.py   | false  | apache-2.0 | Refined langgraphAgenticAI |
+
 # End-to-End-Agentic-AI-project
