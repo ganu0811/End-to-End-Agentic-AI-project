@@ -1,1 +1,9 @@
+title: {{LangGraphAgenticAI}}
+emoji: {{🐨}}
+colorFrom: {{blue}}
+colorTo: {{red}}
+sdk: {{Streamlit}}
+sdk_version: "{{1.42.0}}"
+app_file: app.py
+pinned: false
 # End-to-End-Agentic-AI-project
