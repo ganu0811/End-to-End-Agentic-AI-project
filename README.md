@@ -1,4 +1,4 @@
-| Title              | Emoji | Color From | Color To | SDK       | SDK Version | App File | Pinned | License    | Short Description       |
+| title              | emoji | colorFrom | colorTo | sdk       | sdk_version | app_file | pinned | license    | short_description       |
 |--------------------|-------|------------|----------|-----------|-------------|----------|--------|------------|-------------------------|
 | LanggraphAgenticAI | 🐨    | blue       | red      | streamlit | 1.42.0      | app.py   | false  | apache-2.0 | Refined langgraphAgenticAI |
 
